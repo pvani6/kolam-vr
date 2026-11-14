@@ -828,7 +828,7 @@ export class KolamSystem extends createSystem({}) {
     if (this.tutorial) {
       // First kolam ever: show the line to follow, and guide the first minute
       this.setGuideVisible(true);
-      this.showBanner('Welcome to your doorstep', 'Pinch thumb and finger together, like holding rice flour', '#ffe2a0', 5);
+      this.showBanner('Practice kolam', 'The guide shows only here — from the next kolam, draw from the notebook', '#ffe2a0', 6);
     } else if (this.daily) {
       const day = new Date().toLocaleDateString('en-IN', { weekday: 'long' });
       const mz = margazhiDay();
@@ -2533,13 +2533,22 @@ export class KolamSystem extends createSystem({}) {
     } else {
       ctx.fillStyle = '#ffe2a0';
       ctx.font = '600 50px "Segoe UI", system-ui, sans-serif';
-      ctx.fillText(this.daily ? `Today's kolam  ·  ${level.name}` : `${level.name}  ·  ${STAGES[stageOf(this.levelIndex)].name} ${this.levelIndex + 1}/${LEVELS.length}`, 40, H / 2 - 22);
+      ctx.fillText(
+        this.tutorial
+          ? `Practice  ·  ${level.name}`
+          : this.daily
+            ? `Today's kolam  ·  ${level.name}`
+            : `${level.name}  ·  ${STAGES[stageOf(this.levelIndex)].name} ${this.levelIndex + 1}/${LEVELS.length}`,
+        40,
+        H / 2 - 22,
+      );
       ctx.font = '400 32px "Segoe UI", system-ui, sans-serif';
       ctx.fillStyle = '#c9a28c';
       let hint = level.label;
       if (this.demoActive) hint = 'Watch how it is drawn…';
       else if (this.mode === 'medium' && this.previewTimer > 0) hint = `Remember it! Hiding in ${Math.ceil(this.previewTimer)}…`;
       else if (this.mode === 'medium') hint = `${level.label} · draw it from memory`;
+      else if (this.tutorial) hint = 'Guide shown only here · next kolams: no guide';
       else if (this.mode === 'hard') hint = `${level.label} · draw the kolam from the notebook`;
       ctx.fillText(hint, 40, H / 2 + 34);
     }
