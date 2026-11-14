@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Kolam VR icon: four pulli dots with one looping line (original artwork) -->
+  <rect width="64" height="64" rx="14" fill="#7a1f2b"/>
+  <path d="M32 7 C40 7 57 24 57 32 C57 40 40 57 32 57 C24 57 7 40 7 32 C7 24 24 7 32 7 Z
+           M32 25 C35 25 39 29 39 32 C39 35 35 39 32 39 C29 39 25 35 25 32 C25 29 29 25 32 25 Z"
+        fill="none" stroke="#fbeedd" stroke-width="3.6" stroke-linejoin="round"/>
+  <g fill="#ffd98a">
+    <circle cx="21" cy="21" r="3.6"/><circle cx="43" cy="21" r="3.6"/>
+    <circle cx="21" cy="43" r="3.6"/><circle cx="43" cy="43" r="3.6"/>
+  </g>
+</svg>
