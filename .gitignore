@@ -60,3 +60,6 @@ tools/*.py
 
 # Vercel CLI (if used)
 .vercel/
+
+# Personal submission notes and video script (not part of the game)
+submission/
