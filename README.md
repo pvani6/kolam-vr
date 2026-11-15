@@ -4,7 +4,6 @@
 A calm, hands-first VR game for Meta Quest and Meta VR Glasses, built with the Immersive Web SDK (WebXR).
 
 ▶ **Play:** <https://kolam-vr.vercel.app> — open it in the Meta Quest browser (or on Meta VR Glasses) and press **Enter VR**. On a laptop it opens in mouse mode.
-🔓 **All 50 kolams unlocked (for judges):** <https://kolam-vr.vercel.app/?all>
 🎬 **Demo video:** <https://youtu.be/8Gek8J7hGsY>
 
 Entry for the **Meta VR Start Developer Competition 2026** · Track: Gaming · Division: New Experience.
@@ -57,7 +56,7 @@ npm run preview    # serve the production build
 ```
 
 Keyboard shortcuts in the browser: N / P next / previous kolam, R restart, D show me, U rub out, T today's kolam, L learn, M mute.
-Special links: `?all` unlocks every kolam; `?video` shows a 5-day streak for recording.
+Special link: `?video` shows a 5-day streak for recording.
 
 ## Project structure
 
