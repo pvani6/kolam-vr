@@ -1,10 +1,11 @@
 # Kolam VR · கோலம்
 
-**Draw the doorstep art of Tamil Nadu with your fingertips.**
+**Draw the centuries-old doorstep art of Tamil Nadu, India with your fingertips.**
 A calm, hands-first VR game for Meta Quest and Meta VR Glasses, built with the Immersive Web SDK (WebXR).
 
-▶ **Play:** <https://YOUR-LINK.vercel.app> — open it in the Meta Quest browser and press **Enter VR**.
-All 50 kolams unlocked (for judges): <https://YOUR-LINK.vercel.app/?all>
+▶ **Play:** <https://kolam-vr.vercel.app> — open it in the Meta Quest browser (or on Meta VR Glasses) and press **Enter VR**. On a laptop it opens in mouse mode.
+🔓 **All 50 kolams unlocked (for judges):** <https://kolam-vr.vercel.app/?all>
+🎬 **Demo video:** <https://youtu.be/8Gek8J7hGsY>
 
 Entry for the **Meta VR Start Developer Competition 2026** · Track: Gaming · Division: New Experience.
 
@@ -12,7 +13,7 @@ Entry for the **Meta VR Start Developer Competition 2026** · Track: Gaming · D
 
 ## What it is
 
-Every morning across Tamil Nadu, people step out at dawn and draw a *kolam* at their doorstep: a grid of dots (*pulli*) and one flowing line of rice flour that loops around every dot without ever touching one.
+Every morning across Tamil Nadu, India, and in Tamil homes worldwide, people step out at dawn and draw a *kolam* at their doorstep: a grid of dots (*pulli*) and one flowing line of rice flour that loops around every dot without ever touching one.
 
 In Kolam VR you sit at the threshold of a traditional Tamil house at Margazhi dawn. A patch of swept earth with dots lies in front of you, and an open family notebook shows the kolam to draw. Pinch your fingers as if holding rice flour, and draw.
 
@@ -20,6 +21,7 @@ In Kolam VR you sit at the threshold of a traditional Tamil house at Margazhi da
 
 - **Pinch and draw** on the ground: touch it with your fingertip, or point and pinch. Rice flour falls from your fingers.
 - **Follow one line** from the notebook: straight through every crossing, curving round the outer dots, never touching a dot.
+- A kolam is finished only when every line is drawn.
 - **Three lamps are your lifelines.** A wrong bit turns red, is rubbed out, and a lamp goes out. Lose all three and, after a pause to read why, the kolam starts again.
 - **Buttons:** touch them, point and pinch, or (on Meta VR Glasses) look at one and pinch.
 - Stuck? **Show me** draws the kolam for you, and **Learn** mode shows the line to trace.
@@ -28,7 +30,7 @@ In Kolam VR you sit at the threshold of a traditional Tamil house at Margazhi da
 
 - 50 kolams in four stages (Beginner → Master), from 2 × 2 to 13-1 dots, with stars for clean drawing.
 - **Today's kolam:** a new kolam every day, with your streak shown as clay lamps lit on the doorstep platform.
-- A guided first kolam: no wall of text, you are drawing within a minute.
+- A short practice kolam with a guide line: no wall of text, you are drawing within a minute. From the next kolam on there is no guide.
 - Fully hands-first; controllers optional. Designed seated, within arm's reach.
 - FoV-aware layout that fits the Meta VR Glasses' narrower view; big kolams get a larger drawing ground.
 - Accessibility: high contrast, bigger lines and dots, sound on/off, left-handed layout, ground height.
