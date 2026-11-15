@@ -194,6 +194,8 @@ const DEMO_SPEED = 0.09; // metres per second along the line
 const DEMO_MIN_SECONDS = 4;
 const DEMO_MAX_SECONDS = 30;
 
+// A kolam is finished only when no stretch longer than this (in dot gaps) is still undrawn
+const FINISH_GAP = 0.5;
 const MODE_SETTINGS: Record<Mode, { tolerance: number; completeAt: number }> = {
   // Tolerance is in dot spacings. Rings sit ~0.15 from the woven lines, so stay
   // below that or tracing a line would also fill in the ring beside it.
@@ -1827,8 +1829,33 @@ export class KolamSystem extends createSystem({}) {
   }
 
   /** Finish only when the kolam is covered AND no wrong line is left on it. */
+  /** The longest stretch of the kolam not drawn yet, in dot gaps. */
+  private longestMissing(): number {
+    let worst = 0;
+    for (let loop = 0; loop < this.loopStart.length; loop++) {
+      const L = this.loopLen[loop];
+      let run = 0;
+      let first = -1; // run at the start of the loop (it joins the run at the end)
+      for (let k = 0; k < L; k++) {
+        if (!this.covered[this.sampleAt(loop, k)]) run++;
+        else {
+          if (first < 0) first = run;
+          worst = Math.max(worst, run);
+          run = 0;
+        }
+      }
+      worst = Math.max(worst, first < 0 ? run : run + first);
+    }
+    return worst / this.perSpacing;
+  }
+
+  /** Finished only when every line is drawn (tiny slips of the hand aside). */
+  private allDrawn(): boolean {
+    return this.progress() >= MODE_SETTINGS[this.mode].completeAt && this.longestMissing() <= FINISH_GAP;
+  }
+
   private tryFinish(): void {
-    if (this.complete || this.pendingErase || this.progress() < MODE_SETTINGS[this.mode].completeAt) return;
+    if (this.complete || this.pendingErase || !this.allDrawn()) return;
     if (this.mode === 'hard' && this.strokes.some((st) => this.isSpoiled(st))) {
       const now = performance.now();
       if (!this.almostShown || now - this.almostAt > 8000) {
@@ -2554,7 +2581,7 @@ export class KolamSystem extends createSystem({}) {
     }
 
     // Progress ring
-    const pct = Math.min(1, this.progress() / MODE_SETTINGS[this.mode].completeAt);
+    const pct = this.complete ? 1 : Math.min(this.allDrawn() ? 1 : 0.99, this.progress() / MODE_SETTINGS[this.mode].completeAt);
     const rx = W - 90;
     const ry = H / 2;
     ctx.lineWidth = 14;
